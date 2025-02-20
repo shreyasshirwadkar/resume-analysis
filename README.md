@@ -85,6 +85,68 @@ Uses Gemini LLM to convert raw text into JSON format and stores the result as a 
 
 ---
 
+## 3. Resume Search
+
+### Endpoint:
+
+**POST** `/api/search`
+
+### Description:
+
+Search for resume information in the database based on a name query.
+
+### Headers:
+
+```json
+{
+  "Authorization": "Bearer TOKEN"
+}
+```
+
+### Request Body:
+
+```json
+{
+  "name": "John Doe"
+}
+```
+
+### Responses:
+
+- **200 OK**
+  ```json
+  [
+    {
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "education": "Bachelor's in Computer Science",
+      "experience": "5 years at XYZ Corp",
+      "summary": "Software engineer with expertise in web development",
+      "skills": ["JavaScript", "React", "Node.js"]
+    }
+  ]
+  ```
+- **400 Bad Request**
+  ```json
+  {
+    "error": "Name is required"
+  }
+  ```
+- **404 Not Found**
+  ```json
+  {
+    "error": "No matching records found"
+  }
+  ```
+- **500 Internal Server Error**
+  ```json
+  {
+    "error": "Internal Server Error"
+  }
+  ```
+
+---
+
 ## Middleware
 
 ### Verify User Middleware
