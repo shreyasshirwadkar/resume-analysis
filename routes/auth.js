@@ -10,9 +10,7 @@ router.post("/", (req, res) => {
   if (username !== USERNAME || password !== PASSWORD) {
     return res.status(401).json({ error: "Invalid username or password" });
   }
-  const token = jwt.sign({ username }, process.env.JWT_SECRET, {
-    expiresIn: "1h",
-  });
+  const token = jwt.sign({ username }, process.env.JWT_SECRET);
   res.status(200).json({ JWT: token });
 });
 module.exports = router;

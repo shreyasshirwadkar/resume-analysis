@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
+const searchRoute = require("./routes/search");
 const authRoute = require("./routes/auth");
 
 const PORT = process.env.PORT;
@@ -14,6 +14,7 @@ const resumeRoute = require("./routes/resume");
 app.use("/api/resume", resumeRoute);
 
 app.use("/api/login", authRoute);
+app.use("/api/search", searchRoute);
 
 mongoose
   .connect(process.env.MONGO_URI)
