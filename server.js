@@ -5,7 +5,7 @@ const cors = require("cors");
 const searchRoute = require("./routes/search");
 const authRoute = require("./routes/auth");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 app.use(cors());
