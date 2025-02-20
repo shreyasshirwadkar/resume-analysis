@@ -7,6 +7,9 @@ const PASSWORD = "05111974";
 
 router.post("/", (req, res) => {
   const { username, password } = req.body;
+  if (!username) return res.status(401).json({ error: "Username is required" });
+  if (!password) return res.status(401).json({ error: "Password is required" });
+
   if (username !== USERNAME || password !== PASSWORD) {
     return res.status(401).json({ error: "Invalid username or password" });
   }
