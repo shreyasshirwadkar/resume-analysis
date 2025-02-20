@@ -36,7 +36,6 @@ router.post("/", authMiddleware, async (req, res) => {
         experience: record.experience,
         summary: record.summary,
         skills: record.skills,
-        Soni,
       };
     });
 
